@@ -1,10 +1,13 @@
 const BASE_URL = "https://mongodb-and-postman-authentication.onrender.com";
 
-// elements
+console.log("Heyyy");
 
+// elements
 const postDiv = document.getElementById("posts");
 
-async function getPosts() {
+window.onload = getAllPosts();
+
+async function getAllPosts() {
     const response = await fetch(`${BASE_URL}/post`);
     const data = await response.json();
 
@@ -16,3 +19,5 @@ async function getPosts() {
         </div>
     `).join("");
 }
+
+getPosts();
