@@ -5,19 +5,18 @@ console.log("Heyyy");
 // elements
 const postDiv = document.getElementById("posts");
 
-window.onload = getAllPosts();
+window.onload = getAllPosts;
 
 async function getAllPosts() {
     const response = await fetch(`${BASE_URL}/post`);
     const data = await response.json();
 
-    console.log(data)
-    postDiv.innerHTML = data.post.map(post => `
+    console.log(data); // shows { posts: Array(2) }
+
+    postDiv.innerHTML = data.posts.map(post => `
         <div class="post">
             <h3>${post.title}</h3>
             <p>${post.message}</p>
         </div>
     `).join("");
 }
-
-getPosts();
